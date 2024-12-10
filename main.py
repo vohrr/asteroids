@@ -1,4 +1,5 @@
 import pygame
+from player import Player
 from constants import *
 
 def main(): 
@@ -13,12 +14,15 @@ def main():
     # 3 common steps for the game loop:
     # check for player inputs
     while run:
+        screen.fill('black')
+        player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
+        player.draw(screen)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = not run
         # draw the game to the screen
 
-        screen.fill('black')
         # update the game world
         pygame.display.flip()
         dt += clock.tick(60)
