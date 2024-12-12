@@ -11,11 +11,13 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     run = True 
     
+    player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
+    
     # 3 common steps for the game loop:
     # check for player inputs
     while run:
         screen.fill('black')
-        player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
+        player.update(dt)
         player.draw(screen)
 
         for event in pygame.event.get():
