@@ -27,7 +27,7 @@ def main():
 
     player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
    
-    asteroidField = AsteroidField()
+    asteroid_field = AsteroidField()
 
     # 3 common steps for the game loop:
     # check for player inputs
@@ -43,6 +43,10 @@ def main():
             if(asteroid.check_collision(player)):
                 print("Player collided! Game Over")
                 run = not run
+            for shot in shots:
+                if(asteroid.check_collision(shot)):
+                    asteroid.split()
+                    shot.kill()
 
         for sprite in drawable:
             sprite.draw(screen)
